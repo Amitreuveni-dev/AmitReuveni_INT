@@ -21,6 +21,11 @@ body {
   margin: 0.6rem;
   border-radius: 1rem;
 }
+.card:hover {
+  background-color: #b8b8b8;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
 
 .card-image {
   margin: 0.3rem;
@@ -34,10 +39,13 @@ body {
 
 .card h2 {
   padding: 0.2rem;
+  letter-spacing: -1.2px;
 }
 
 .card p {
   padding: 0.3rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
 }
 
 .btn-1 {
@@ -52,6 +60,7 @@ body {
   display: flex;
   margin-top: 2.3rem;
   margin-right: 10rem;
+  text-decoration: none;
 }
 .btn-1:hover {
   background: #b500be;
@@ -72,6 +81,7 @@ body {
   letter-spacing: -1.2px;
   display: flex;
   margin-right: 10rem;
+  text-decoration: none;
 }
 .btn-2:hover {
   background: orange;
@@ -93,6 +103,7 @@ body {
   display: flex;
   margin-top: 2.3rem;
   margin-right: 10rem;
+  text-decoration: none;
 }
 .btn-3:hover {
   background: #2929ff;
