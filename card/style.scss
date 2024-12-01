@@ -11,6 +11,7 @@ body {
 .container{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card{
@@ -38,3 +39,76 @@ body {
 .card p{
     padding: 0.3rem;
 }
+
+
+.btn-1{
+    font-size: 1.5rem;
+    background: rgb(120, 120, 120);
+    color: black;
+    border: 2px solid currentColor;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    display: flex;
+    margin-top: 2.3rem;
+    margin-right: 10rem;
+
+
+    &:hover {
+        background: rgb(181, 0, 190);
+      }
+    
+      &:active {
+        background: rgb(109, 0, 109);
+        color: black;
+      }
+}
+
+.btn-2{
+    font-size: 1.5rem;
+    background: rgb(120, 120, 120);
+    color: black;
+    border: 2px solid currentColor;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    display: flex;
+    margin-right: 10rem;
+    
+
+    &:hover {
+        background: orange;
+      }
+    
+      &:active {
+        background: rgb(129, 84, 0);
+        color: black;
+      }
+}
+
+.btn-3{
+    font-size: 1.5rem;
+    background: rgb(120, 120, 120);
+    color: black;
+    border: 2px solid currentColor;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+    display: flex;
+    margin-top: 2.3rem;
+    margin-right: 10rem;
+    
+
+    &:hover {
+        background: rgb(41, 41, 255)
+      }
+    
+      &:active {
+        background: royalblue;
+        color:black
+      }
+}
+

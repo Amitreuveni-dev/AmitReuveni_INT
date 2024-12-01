@@ -11,6 +11,7 @@ body {
 .container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -37,4 +38,66 @@ body {
 
 .card p {
   padding: 0.3rem;
+}
+
+.btn-1 {
+  font-size: 1.5rem;
+  background: #787878;
+  color: black;
+  border: 2px solid currentColor;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  display: flex;
+  margin-top: 2.3rem;
+  margin-right: 10rem;
+}
+.btn-1:hover {
+  background: #b500be;
+}
+.btn-1:active {
+  background: #6d006d;
+  color: black;
+}
+
+.btn-2 {
+  font-size: 1.5rem;
+  background: #787878;
+  color: black;
+  border: 2px solid currentColor;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  display: flex;
+  margin-right: 10rem;
+}
+.btn-2:hover {
+  background: orange;
+}
+.btn-2:active {
+  background: #815400;
+  color: black;
+}
+
+.btn-3 {
+  font-size: 1.5rem;
+  background: #787878;
+  color: black;
+  border: 2px solid currentColor;
+  border-radius: 0 0.5rem 0.5rem 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+  display: flex;
+  margin-top: 2.3rem;
+  margin-right: 10rem;
+}
+.btn-3:hover {
+  background: #2929ff;
+}
+.btn-3:active {
+  background: royalblue;
+  color: black;
 }
