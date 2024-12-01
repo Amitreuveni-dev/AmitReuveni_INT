@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1b1b1b;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  width: 16.9rem;
+  height: 25rem;
+  margin: 0.6rem;
+  border-radius: 1rem;
+}
+
+.card-image {
+  margin: 0.3rem;
+}
+
+.img-1 {
+  width: 16.9rem;
+  height: 10.6rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card h2 {
+  padding: 0.2rem;
+}
+
+.card p {
+  padding: 0.3rem;
+}
+
+.btn {
+  background-color: blue;
+  color: black;
+}
