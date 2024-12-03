@@ -1,56 +1,59 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background: rgb(27,27,27);
+    background: rgb(27, 27, 27);
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.container {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto; 
+    padding: 2rem 0;
 }
 
-.card{
+.card-1, .card-2, .card-3 {
     background: white;
     width: 16.9rem;
     height: 25rem;
     margin: 0.6rem;
     border-radius: 1rem;
-
-    &:hover{
-        background-color: rgb(184, 184, 184);
-        transform: scale(1.02);
-        transition: all 0.3s ease;
-    }
+    display: inline-block;
+    vertical-align: top; 
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.card-image{
+.card-1:hover, .card-2:hover, .card-3:hover {
+    background-color: rgb(184, 184, 184);
+    transform: scale(1.02);
+}
+
+.card-image {
     margin: 0.3rem;
 }
 
-.img-1{
+.img-1 {
     width: 16.9rem;
     height: 10.6rem;
     border-radius: 1rem 1rem 0 0;
 }
 
-.card h2{
+.card h2 {
     padding: 0.2rem;
     letter-spacing: -1.2px;
 }
 
-.card p{
+.card p {
     padding: 0.3rem;
     font-weight: 500;
     letter-spacing: -0.5px;
 }
 
-
-.btn-1{
+.btn-1, .btn-2, .btn-3 {
     font-size: 1.5rem;
     background: rgb(120, 120, 120);
     color: black;
@@ -59,68 +62,38 @@ body {
     cursor: pointer;
     font-weight: 600;
     letter-spacing: -1.2px;
-    display: flex;
-    margin-top: 2.3rem;
-    margin-right: 10rem;
+    margin-top: 2rem;
     text-decoration: none;
-
-
-    &:hover {
-        background: rgb(181, 0, 190);
-      }
-    
-      &:active {
-        background: rgb(109, 0, 109);
-        color: black;
-      }
+    display: inline-block;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
 }
 
-.btn-2{
-    font-size: 1.5rem;
-    background: rgb(120, 120, 120);
+.btn-1:hover {
+    background: rgb(181, 0, 190);
+}
+
+.btn-1:active {
+    background: rgb(109, 0, 109);
     color: black;
-    border: 2px solid currentColor;
-    border-radius: 0 0.5rem 0.5rem 0.5rem;
-    cursor: pointer;
-    font-weight: 600;
-    letter-spacing: -1.2px;
-    display: flex;
-    margin-right: 10rem;
-    text-decoration: none;
-    
-
-    &:hover {
-        background: orange;
-      }
-    
-      &:active {
-        background: rgb(129, 84, 0);
-        color: black;
-      }
 }
 
-.btn-3{
-    font-size: 1.5rem;
-    background: rgb(120, 120, 120);
+.btn-2:hover {
+    background: orange;
+}
+
+.btn-2:active {
+    background: rgb(129, 84, 0);
     color: black;
-    border: 2px solid currentColor;
-    border-radius: 0 0.5rem 0.5rem 0.5rem;
-    cursor: pointer;
-    font-weight: 600;
-    letter-spacing: -1.2px;
-    display: flex;
-    margin-top: 2.3rem;
-    margin-right: 10rem;
-    text-decoration: none;
-    
-
-    &:hover {
-        background: rgb(41, 41, 255)
-      }
-    
-      &:active {
-        background: royalblue;
-        color:black
-      }
 }
 
+.btn-3:hover {
+    background: rgb(41, 41, 255);
+}
+
+.btn-3:active {
+    background: royalblue;
+    color: black;
+}
