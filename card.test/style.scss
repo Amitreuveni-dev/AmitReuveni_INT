@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+    border: 2px solid black;
+    margin: 1rem;
+    padding: 0.2rem;
+}
+
+main{
+    flex: 1;
+}
+
+
+footer{
+    background: hsl(0deg, 0, 80%);
+    border: 2px solid black;
+    padding: 0.2rem;
+    text-align: center;
+    justify-content: space-between;
+}
