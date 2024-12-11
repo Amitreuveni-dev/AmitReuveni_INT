@@ -1,49 +1,111 @@
-*{
-    margin: 0;    
-    padding: 0;
+*, *::before, *::after {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+* {
+    margin: 0;
+}
+
+ul, ol, menu {
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
     width: 100%;
 }
 
-.header{
-    font-size: larger;
-    text-align: center;
-    text-decoration: underline;
-    margin: 1rem;
-    padding: 1rem;
+// html, body {
+//     height: 100%;
+// }
+
+html {
+    font-size: 1.2rem;
 }
 
-
-.list-1{
-    background-color: black;
-    border-radius: 1rem 1rem 0 0;
-    width: 13rem;
-    height: 19rem;
-    border-radius:1rem;
-    max-width: 13rem;
-    max-height: 19rem;
+body {
+    font-family: system-ui;
+    line-height: 1.5;
+    color: hsl(0deg 0% 5%);
 }
 
-.all-lists{
+main {
+    width: calc(100% - 2rem);
+    margin-inline: auto;
+
+    > * + * {
+        margin-block-start: 2rem;
+    }
+}
+
+.gallery {
     display: flex;
-    gap: 1.5rem;
-    margin-inline: 1rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    list-style-type: none;
+
+    margin-block-start: 2rem;
+
+    > * {
+        flex: 500px;
+        min-width: 350px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    img:first-child {
+        border-radius: 16px;
+    }
+
+    &__title, &__price {
+        font-weight: 500;
+    }
+}
+
+
+.container{
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar{
+    width: 250px;
+    background-color: #111; 
     color: white;
+    padding-top: 20px;
+}
+
+.sidebar h2{
+    text-align: center;
+    padding: 10px;
+}
+
+.sidebar ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
     text-align: center;
 }
 
-img{
-    width: 13rem;
-    height: 7rem;
-    border-radius: 1rem 1rem 0 0;
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
 }
 
-h2{
-    padding: 0.5rem;
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }

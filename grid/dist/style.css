@@ -1,0 +1,57 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+ul, ol, menu {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+html, body, main {
+  height: 100%;
+}
+
+html {
+  font-size: 1.2rem;
+}
+
+body {
+  font-family: system-ui;
+  line-height: 1.5;
+  color: #0d0d0d;
+}
+
+main {
+  display: grid;
+  grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+}
+main .head {
+  grid-area: 3/3/11/11;
+  gap: 6px;
+  background: red;
+}
+main .box1 {
+  grid-area: 3/3/8/8;
+  background: black;
+}
+main .box2 {
+  grid-area: 8/3/11/8;
+  background: lime;
+}
+main .box3 {
+  grid-area: 9/8/11/11;
+  background: yellow;
+}
+main .box4 {
+  grid-column-end: span 5;
+  grid-row-end: span 2;
+}
