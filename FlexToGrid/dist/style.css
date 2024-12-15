@@ -1,0 +1,110 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+ul, ol, menu {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+html, body, main {
+  height: 100%;
+}
+
+html {
+  font-size: 1.2rem;
+}
+
+body {
+  font-family: system-ui;
+  line-height: 1.5;
+  color: #0d0d0d;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+
+.site-nav {
+  background: #f2f2f2;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr;
+}
+.site-nav menu {
+  display: grid;
+  overflow: auto;
+  min-width: 900px;
+}
+.site-nav .top-sidebar {
+  display: grid;
+}
+.site-nav .list-property {
+  display: grid;
+}
+.site-nav .__break {
+  display: grid;
+  align-items: flex-end;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+main {
+  display: grid;
+  flex: 9999999;
+  min-width: 900px;
+  overflow: auto;
+}
+main > * + * {
+  margin-block-start: 2rem;
+}
+
+.gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  margin-block-start: 2rem;
+}
+.gallery > * {
+  flex: 500px;
+  min-width: 350px;
+}
+
+.card {
+  display: grid;
+  gap: 0.2rem;
+}
+.card img:first-child {
+  border-radius: 16px;
+}
+.card__title, .card__price {
+  font-weight: 500;
+}
+
+.reading-view {
+  display: grid;
+  width: min(70ch, 100% - 2rem);
+  margin-inline: auto;
+}
+.reading-view > p + p {
+  margin-block-start: 1rem;
+}
+
+aside {
+  display: grid;
+  margin-block: 1rem;
+  border: 1px solid currentColor;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
