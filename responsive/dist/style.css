@@ -16,8 +16,9 @@ img {
   width: 100%;
 }
 
-html, body, main {
+html, body {
   height: 100%;
+  min-width: 527px;
 }
 
 html {
@@ -30,15 +31,54 @@ body {
   color: #0d0d0d;
 }
 
-.top {
-  background: aqua;
+.top-nav {
+  display: flex;
+  font-size: 1.5rem;
+  overflow: auto;
+  height: 80px;
+  padding: 10px;
+  min-width: 350px;
+  background-color: #cccccc;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: space-between;
+  border: 2px solid gray;
+}
+.top-nav li {
   display: inline;
-  margin-inline: 1rem;
+  margin: 0.5rem;
 }
 
-.side-bar {
-  background-color: #f2f2f2;
+.display {
+  display: flex;
+  height: 100vh;
+}
+.display .side-bar {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  flex: 250px;
+  width: 700px;
+  border: 2px solid gray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  background-color: #cccccc;
+}
+.display .side-bar menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 1rem;
+  flex: 1;
+}
+.display .side-bar__break {
+  margin-inline-start: auto;
+}
+
+.info {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.info img {
+  width: 400px;
 }
