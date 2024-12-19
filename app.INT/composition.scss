@@ -1,0 +1,53 @@
+body{
+    margin: 0.5rem;
+}
+.heading{
+    display: flex;
+    height: 8rem;
+    margin: 0.5rem;
+    justify-content: space-around;
+
+    input{
+        height: 1.5rem;
+    }
+
+    img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+}
+
+.for-you{
+    display: flex;
+
+    menu{
+        display: flex;
+    }
+}
+
+
+
+.video{
+    text-align: center;
+}
+
+.trending{
+    display: flex;
+
+    ul{
+        display: flex;
+    }
+}
+
+.footer{
+    text-align: center;
+}
+
+.best-picks{
+    display: flex;
+
+    ul{
+        display: flex;
+    }
+}
