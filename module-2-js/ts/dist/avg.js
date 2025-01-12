@@ -1,40 +1,50 @@
+function HandleCancel() {
+    alert("Enjoy your day :)");
+    throw new Error();
+}
 var userInput = prompt("Hey what's your name?");
-while (userInput === "" || !isNaN(userInput) || userInput === null) {
-    alert("please enter a valid name (not a number or empty).");
+while (userInput === "" || !isNaN(userInput)) {
+    if (userInput === null) {
+        HandleCancel();
+    }
+    alert("Please enter a valid name.");
     userInput = prompt("Hey what's your name?");
 }
 alert("Hello " + userInput + "!");
-var quitFunction = prompt("welcom to my game\nfor playing just press enter in your keyboerd\nif you want already to quit please click the cancel button");
+var quitFunction = prompt("welcom to my game\nfor playing just press enter in your keyboerd or write something\nif you want already to quit please click the cancel button");
 if (quitFunction === null) {
-    alert("enjoy your day :)");
-    throw new Error();
+    HandleCancel();
 }
-else {
-    alert("enjoy the game");
-}
+alert("enjoy the game");
 var sumNumbers = 0;
 var numbersToRead = prompt("how many numbers do you want to input?");
-if (numbersToRead === null) {
-    alert("enjoy your day :)");
-    throw new Error();
+while (numbersToRead === "" || isNaN(numbersToRead) || numbersToRead <= 0) {
+    if (numbersToRead === null) {
+        HandleCancel();
+    }
+    alert("plaese enter just a valid number (not an empty line)");
+    numbersToRead = prompt("how many numbers do you want to input?");
 }
-else {
-    alert("you chose " + (numbersToRead) + " numbers");
-}
+alert("you chose " + numbersToRead + " numbers");
 for (var i = 0; i < numbersToRead; i++) {
     var numberToAdd = Number(prompt("please enter a number"));
-    // sumNumbers = sumNumbers + numberToAdd
-    sumNumbers += numberToAdd;
+    var userChoise = Number(numberToAdd);
+    if (numberToAdd === null) {
+        HandleCancel();
+    }
+    if (isNaN(userChoise)) {
+        alert("please enter a valid number. ");
+        i--;
+    }
+    else {
+        sumNumbers += userChoise;
+    }
 }
 var average = sumNumbers / numbersToRead;
-alert(average);
-// 1 + 0 = 1
-// 2 + 0 = 2
-// 1000 + 0 = 1000
-// x + 0 = x
+alert("The average is: " + average);
 // 1. Fix avg so the user should click the "cancel" button to finish the input (update the prompt to reflect the change)
 // 2. Student stats
-//     * First  ask the user which operation he want to perform: max, min
+// * First  ask the user which operation he want to perform: max, min
 //     * Read student grades using 2 prompts (full name then grade)
 //     * Validate grades (0 - 100)
 //     * Ask to fix invalid grades

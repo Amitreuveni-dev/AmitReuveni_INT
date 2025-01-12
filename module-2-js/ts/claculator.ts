@@ -11,8 +11,8 @@ const firstNumber = Number(prompt("enter your first number"));
 const secondNumber = Number(prompt("enter your second number"));
 
 if (isNaN(firstNumber) || isNaN(secondNumber)){
-    alert("you must enter valid numbers.")
-    throw new Error("invalid number input")
+    alert("you must enter valid numbers.");
+    throw new Error("invalid number input");
 }
 
 const operetor = (prompt("write your operetor, it could be either (+, -, *, /) ?")); 
@@ -22,15 +22,15 @@ if (operetor !== "+" && operetor !== "-" && operetor !== "*" && operetor !== "/"
 }
 
 if (operetor === "/" && secondNumber === 0){
-    alert("you cannot devided by zero")
-    throw new Error("division by zero")
+    alert("you cannot devided by zero");
+    throw new Error("division by zero");
 }
 if (operetor== '+') {
-    alert(firstNumber + + secondNumber)
+    alert("your score is " + (firstNumber + + secondNumber));
 }else if (operetor== '-') {
-    alert(firstNumber - secondNumber);
+    alert("your score is " + (firstNumber - secondNumber));
 }else if (operetor== '*') {
-    alert(firstNumber * secondNumber);
-}else(operetor== '/') {
-    alert(firstNumber / secondNumber);
+    alert("your score is " + (firstNumber * secondNumber));
+}else if(operetor== '/') {
+    alert("your score is " + (firstNumber / secondNumber));
 }

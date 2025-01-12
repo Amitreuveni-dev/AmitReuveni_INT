@@ -23,16 +23,14 @@ if (operetor === "/" && secondNumber === 0) {
     throw new Error("division by zero");
 }
 if (operetor == '+') {
-    alert(firstNumber + +secondNumber);
+    alert("your score is " + (firstNumber + +secondNumber));
 }
 else if (operetor == '-') {
-    alert(firstNumber - secondNumber);
+    alert("your score is " + (firstNumber - secondNumber));
 }
 else if (operetor == '*') {
-    alert(firstNumber * secondNumber);
+    alert("your score is " + (firstNumber * secondNumber));
 }
-else
-    (operetor == '/');
-{
-    alert(firstNumber / secondNumber);
+else if (operetor == '/') {
+    alert("your score is " + (firstNumber / secondNumber));
 }
