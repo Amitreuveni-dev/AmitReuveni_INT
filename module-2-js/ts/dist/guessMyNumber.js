@@ -43,15 +43,15 @@ function startgame() {
     }
 }
 function changeSettings() {
-    var newMin = alert(Number(prompt("Please chose your new min number")));
-    var newMax = alert(Number(prompt("Please chose your new max number")));
+    var newMin = Number(prompt("Please chose your new minimum number"));
+    var newMax = Number(prompt("Please chose your new maximum number"));
     if (isNaN(newMin) || isNaN(newMax) || newMin >= newMax) {
         alert("Wrong settings please try again");
     }
     else {
         gameSettings.min = newMin;
         gameSettings.max = newMax;
-        alert("The settings have changed your new minimum is " + gameSettings.min + ", and your new maximum number is " + gameSettings.max);
+        alert("The settings have changed\nyour new minimum is " + gameSettings.min + ",\nand your new maximum number is " + gameSettings.max);
     }
 }
 function mainMenu() {
@@ -61,6 +61,21 @@ function mainMenu() {
         switch (choice) {
             case "1":
                 startgame();
+                break;
+            case "2":
+                changeSettings();
+                break;
+            case "3":
+                var quitGame = confirm("Are you sure you want to quit the game already");
+                if (!quitGame) {
+                    mainMenu();
+                    break;
+                }
+                alert("Thanks for playing have a good day!");
+                break;
+            default:
+                alert("Invalid selection, Please try again");
         }
-    } while ();
+    } while (choice !== "3");
 }
+mainMenu();
