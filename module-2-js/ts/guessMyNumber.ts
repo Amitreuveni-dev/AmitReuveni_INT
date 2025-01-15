@@ -15,45 +15,45 @@ const maxNum = 100
 
 
 let answer;
-let attempts; 
+let attempts;
 let guess;
 let running;
-let gameSettings = {min: minNum, max:maxNum };
+let gameSettings = { min: minNum, max: maxNum };
 
-function startgame(){
-    answer = Math.floor(Math.random() * (gameSettings.max - gameSettings.min + 1)) + gameSettings.min; 
+function startgame() {
+    answer = Math.floor(Math.random() * (gameSettings.max - gameSettings.min + 1)) + gameSettings.min;
     attempts = 0;
     running = true;
-    
-    
-    
-    while(running) {
-    guess = Number(prompt(`Guess a number between ${gameSettings.min} - ${gameSettings.max}`));
 
-    if(isNaN(guess)){
+
+
+    while (running) {
+        guess = Number(prompt(`Guess a number between ${gameSettings.min} - ${gameSettings.max}`));
+
+        if (isNaN(guess)) {
             alert("Please enter a valid number");
-    } else if (guess < minNum || guess > maxNum){
+        } else if (guess < minNum || guess > maxNum) {
             alert("Please enter a valid number between ");
-    }   else {
+        } else {
             attempts++;
-            if(guess < answer){
+            if (guess < answer) {
                 alert("TOO LOW! Please try again! ");
-            } else if (guess > answer){
+            } else if (guess > answer) {
                 alert("TOO HIGH! Please try again!");
             } else {
                 alert(`Correct! the answer is ${answer}. it took you ${attempts} attempts`);
                 running = false;
             }
         }
-    
+
     }
 }
 
-function changeSettings(){
+function changeSettings() {
     let newMin = Number(prompt("Please chose your new minimum number")));
     let newMax = Number(prompt("Please chose your new maximum number")));
 
-    if(isNaN(newMin) || isNaN(newMax) || newMin >= newMax) {
+    if (isNaN(newMin) || isNaN(newMax) || newMin >= newMax) {
         alert("Wrong settings please try again");
     } else {
         gameSettings.min = newMin;
@@ -62,7 +62,7 @@ function changeSettings(){
     }
 }
 
-function mainMenu(){
+function mainMenu() {
     let choice;
     do {
         choice = prompt("Please choose an option\n1. Start a new game\n2. Change the settings\n3. quit the game");
@@ -76,10 +76,10 @@ function mainMenu(){
                 break;
             case "3":
                 let quitGame = confirm("Are you sure you want to quit the game already");
-                if(!quitGame) {
+                if (!quitGame) {
                     mainMenu();
                     break;
-                } 
+                }
                 alert("Thanks for playing have a good day!");
                 break;
             default:
