@@ -15,7 +15,7 @@ var attempts;
 var guess;
 var running;
 var gameSettings = { min: minNum, max: maxNum };
-function startgame(start) {
+function startgame() {
     answer = Math.floor(Math.random() * (gameSettings.max - gameSettings.min + 1)) + gameSettings.min;
     attempts = 0;
     running = true;
@@ -41,4 +41,26 @@ function startgame(start) {
             }
         }
     }
+}
+function changeSettings() {
+    var newMin = alert(Number(prompt("Please chose your new min number")));
+    var newMax = alert(Number(prompt("Please chose your new max number")));
+    if (isNaN(newMin) || isNaN(newMax) || newMin >= newMax) {
+        alert("Wrong settings please try again");
+    }
+    else {
+        gameSettings.min = newMin;
+        gameSettings.max = newMax;
+        alert("The settings have changed your new minimum is " + gameSettings.min + ", and your new maximum number is " + gameSettings.max);
+    }
+}
+function mainMenu() {
+    var choice;
+    do {
+        choice = prompt("Please choose an option\n1. Start a new game\n2. Change the settings\n3. quit the game");
+        switch (choice) {
+            case "1":
+                startgame();
+        }
+    } while ();
 }

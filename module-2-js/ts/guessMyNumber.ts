@@ -20,7 +20,7 @@ let guess;
 let running;
 let gameSettings = {min: minNum, max:maxNum };
 
-function startgame(start: number){
+function startgame(){
     answer = Math.floor(Math.random() * (gameSettings.max - gameSettings.min + 1)) + gameSettings.min; 
     attempts = 0;
     running = true;
@@ -31,20 +31,45 @@ function startgame(start: number){
     guess = Number(prompt(`Guess a number between ${gameSettings.min} - ${gameSettings.max}`));
 
     if(isNaN(guess)){
-        alert("Please enter a valid number");
+            alert("Please enter a valid number");
     } else if (guess < minNum || guess > maxNum){
-        alert("Please enter a valid number between ");
+            alert("Please enter a valid number between ");
+    }   else {
+            attempts++;
+            if(guess < answer){
+                alert("TOO LOW! Please try again! ");
+            } else if (guess > answer){
+                alert("TOO HIGH! Please try again!");
+            } else {
+                alert(`Correct! the answer is ${answer}. it took you ${attempts} attempts`);
+                running = false;
+            }
+        }
+    
+    }
+}
+
+function changeSettings(){
+    let newMin = alert(Number(prompt("Please chose your new min number")));
+    let newMax = alert(Number(prompt("Please chose your new max number")));
+
+    if(isNaN(newMin) || isNaN(newMax) || newMin >= newMax) {
+        alert("Wrong settings please try again");
     } else {
-        attempts++;
-        if(guess < answer){
-            alert("TOO LOW! Please try again! ");
-        } else if (guess > answer){
-            alert("TOO HIGH! Please try again!");
-        } else {
-            alert(`Correct! the answer is ${answer}. it took you ${attempts} attempts`);
-            running = false;
+        gameSettings.min = newMin;
+        gameSettings.max = newMax;
+        alert(`The settings have changed your new minimum is ${gameSettings.min}, and your new maximum number is ${gameSettings.max}`);
+    }
+}
+
+function mainMenu(){
+    let choice;
+    do {
+        choice = prompt("Please choose an option\n1. Start a new game\n2. Change the settings\n3. quit the game");
+
+        switch (choice) {
+            case "1":
+                startgame();
         }
     }
-    
-}
 }
