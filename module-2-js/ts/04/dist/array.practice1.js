@@ -1,3 +1,4 @@
+// 1. Read string from the user until the user hits cancel. Ask the user for a number (N). Alert the Nth string
 var strings = [];
 var userStrings = prompt("Please enter a name");
 while (userStrings === null || userStrings.trim() === "") {
