@@ -33,3 +33,8 @@ var employees = [
 employees.forEach(function (employee) {
     alert(employee.firstName + " " + employee.lastName + "\n" + employee.department + "\n" + employee.sallery);
 });
+// const nameParts = newName?.split(" ") ?? [person1.firstName, person1.lastName];
+// ?. - conditional chaining ("elvis")
+// exp1?.exp2 === ((exp1 === null || exp1 === undefined) ? undefined : exp1.exp2)
+// ?? - nullish coalescing (binary)
+// (exp1 ?? exp2) === (exp1 == null ? exp2 : exp1)
