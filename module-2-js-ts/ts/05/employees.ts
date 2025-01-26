@@ -6,15 +6,37 @@ type Employee = {
 };
 
 function menu() {
-    const mainMenu = prompt("Welcome plaese chose an option\n1.Add a person.\n2.Remove a person.\n3.Take a look on the salary.\n4.See statistics.\n5.Press cancel to exit the menu.");
+    const mainMenu = prompt("Please choose an option\n" +
+        "1. Add a person.\n" +
+        "2. Remove a person.\n" +
+        "3. Take a look at the highest salary.\n" +
+        "4. Press cancel to exit.");
 
-    switch (mainMenu){
-        case 1:
-        case"Add":
-        case"person":
-        getEmployeeData;
-        break;
+    switch (mainMenu) {
+        case "1":
+        case "Add":
+            getEmployeeData();
+            break;
 
+        case "2":
+        case "remove":
+            removePerson();
+            break;
+
+        case "3":
+            alert(`you hit 3`);
+            break;
+
+        case "4":
+            alert(`You chose option 4: exiting.`);
+            break;
+
+        case null:
+            alert(`Goodbye`)
+            break;
+
+        default:
+            alert(`Invalid option. Please try again`);
     }
 }
 
@@ -27,7 +49,7 @@ function getEmployeeData() {
     const department = prompt("Please enter your department");
     const sallary = Number(prompt("Please enter your sallary"));
 
-    if (name && department && (age) && (sallary)) {
+    if (name && age && department && sallary) {
 
         employees.push({
             name,
@@ -36,37 +58,22 @@ function getEmployeeData() {
             sallary
         });
     } else {
-        alert("Invalid details, please try again")
+        alert(`Invalid details, please try again`)
+        getEmployeeData();
     }
 
 }
 
-getEmployeeData();
-// let employeeWithMaxSallary = employees[0];
+function removePerson() {
 
+    const Remove = Number(prompt("which person would you like to remove ?"));
 
-// for (const employee of employees) {
-//     if (employee.sallary > employeeWithMaxSallary.sallary) {
-//         employeeWithMaxSallary = employee
-//     }
-// }
+    if (Remove === 0) {
+        alert("you havent chose a person");
+        return;
+    } else {
+        alert(`you chose to remove person #${Remove}`);
+    }
+}
 
-// alert(`The employee with the highest sallary is: ${employeeWithMaxSallary.name}`);
-
-// let employeeWithMinSallary = employees[0];
-
-// for (const employee of employees) {
-//     if (employee.sallary < employeeWithMinSallary.sallary) {
-//         employeeWithMinSallary = employee
-//     }
-// }
-
-// alert(`The employee with the lowest sallary is: ${employeeWithMinSallary.name}`);
-
-// let sallariesSum = 0;
-
-// for (const employee of employees) {
-//     sallariesSum += employee.sallary;
-// }
-
-// alert(`The average sallary is ${sallariesSum / employees.length}`);
+menu();
