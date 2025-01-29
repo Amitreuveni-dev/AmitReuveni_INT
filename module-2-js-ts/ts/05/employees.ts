@@ -60,14 +60,11 @@ function menu() {
 let employees: Employee[] = [];
 
 function getEmployeeData() {
-
     const name = prompt("Please enter your name");
     const age = Number(prompt("Please enter your age"));
     const department = prompt("Please enter your department");
     const sallary = Number(prompt("Please enter your sallary"));
-
     if (name && age && department && sallary) {
-
         employees.push({
             name,
             age,
@@ -78,30 +75,22 @@ function getEmployeeData() {
         alert(`Invalid details, please try again`)
         getEmployeeData();
     }
-
 }
 
 function removeEmployee() {
-
     let userChoice = prompt("Please enter the name of the person you would like to remove from the list?");
-
     if (userChoice === null) {
         alert("you haven't chosen a person.\nBack to main menu");
         return menu();
     }
-
     const Length = employees.length;
     employees = employees.filter(employee => employee.name !== userChoice);
-
     if (employees.length === Length) {
         alert("Employee not found");
     } else {
         alert(`You have removed ${userChoice} from the list`);
     }
-
 }
-
-
 
 function highestSallery() {
     if (employees.length === 0) {
@@ -114,24 +103,16 @@ function highestSallery() {
             highest = employees[i];
         }
     }
-
     alert(`The employee with the highest salary is ${highest.name}.\nwith a salary of ${highest.sallary}.`);
 }
 
-
-
-
 function employeeList() {
-
     if (employees.length === 0) {
         alert("No employees in the list.");
     } else {
         const employeeNames = employees.map(employee => `Name: ${employee.name}, Age: ${employee.age}, department: ${employee.department}, sallary: ${employee.sallary}`);
         alert("Employye list:\n" + employeeNames.join("\n"));
     }
-
 }
-
-
 
 menu();
