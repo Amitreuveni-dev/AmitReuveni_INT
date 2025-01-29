@@ -10,7 +10,8 @@ function menu() {
         "1. Add a person.\n" +
         "2. Remove a person.\n" +
         "3. Take a look at the highest sallary.\n" +
-        "4. Press cancel to exit.");
+        "4. Take a look at the employee list.\n" +
+        "5. Press cancel to exit.");
 
     switch (mainMenu) {
         case "1":
@@ -31,11 +32,19 @@ function menu() {
 
         case "3":
         case "sallary":
+        case "highest sallary":
             highestSallery();
             return menu();
 
         case "4":
-            alert(`You chose option 4: exiting.`);
+        case "list":
+        case "employee list":
+            employeeList();
+            return menu();
+
+        case "5":
+        case "exit":
+            alert(`You chose option 5: exiting.`);
             break;
 
         case null:
@@ -48,7 +57,7 @@ function menu() {
     }
 }
 
-const employees: Employee[] = [];
+let employees: Employee[] = [];
 
 function getEmployeeData() {
 
@@ -76,29 +85,19 @@ function removeEmployee() {
 
     let userChoice = prompt("Please enter the name of the person you would like to remove from the list?");
 
-    if (!userChoice) {
-        alert("you haven't chosen a person");
+    if (userChoice === null) {
+        alert("you haven't chosen a person.\nBack to main menu");
+        return menu();
     }
-    
+
     const Length = employees.length;
-    let updatedEmployees = employees.filter(employee => employee.name === userChoice);
+    employees = employees.filter(employee => employee.name !== userChoice);
 
     if (employees.length === Length) {
         alert("Employee not found");
-        return removeEmployee();
     } else {
-        alert(`You have removed ${updatedEmployees} from the list`);
+        alert(`You have removed ${userChoice} from the list`);
     }
-
-    // const updatedEmployees = employees.filter(employee => employee.name === userChoice)??"Not found";
-
-    // if (updatedEmployees.length === employees.length) {
-    //     alert("Employee not found");
-    // } else {
-    //     employees.length = 0;
-    //     employees.push(...updatedEmployees);
-    //     alert(`You have removed #${userChoice} from the list`);
-    // }
 
 }
 
@@ -116,7 +115,23 @@ function highestSallery() {
         }
     }
 
-    alert(`The employee with the highest salary is ${highest.name} with a salary of ${highest.sallary}.`);
+    alert(`The employee with the highest salary is ${highest.name}.\nwith a salary of ${highest.sallary}.`);
 }
+
+
+
+
+function employeeList() {
+
+    if (employees.length === 0) {
+        alert("No employees in the list.");
+    } else {
+        const employeeNames = employees.map(employee => `Name: ${employee.name}, Age: ${employee.age}, department: ${employee.department}, sallary: ${employee.sallary}`);
+        alert("Employye list:\n" + employeeNames.join("\n"));
+    }
+
+}
+
+
 
 menu();
