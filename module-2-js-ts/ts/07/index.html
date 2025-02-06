@@ -3,11 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nim Game</title>
+    <title>Id card</title>
+    <link rel="stylesheet" href="dist/style.css">
 </head>
 <body>
-    <main>
-        
+    <h1>Create your id card :</h1>
+    <main class="stack">
+        <form name="form master">
+            <div class="fullNameInput">
+                <label for="fullName">Full Name</label>
+                <input type="text"
+                name="fullName"
+                autofocus
+                required>
+            </div>
+            <div class="idInput">
+                <label for="id">Id</label>
+                <input type="text"
+                name="id"
+                required
+                maxlength= 9
+                minlength= 9
+                inputmode="numeric">
+            </div>
+            <div class="phoneNumberInput">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="number"
+                name="phoneNumber"
+                required>
+            </div>
+            <div class="emailInput">
+                <label for="emailInput">Email</label>
+                <input type="email"
+                name="emailInput"
+                required>
+            </div>
+            <div class="userName">
+                <label for="userName">User Name</label>
+                <input type="text"
+                required
+                maxlength="20"
+                minlength="6"> 
+            </div>
+            <div>
+                <button>SUBMIT</button>
+            </div>
+        </form>
     </main>
 </body>
 </html>
