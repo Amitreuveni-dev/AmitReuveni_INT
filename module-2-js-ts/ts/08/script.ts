@@ -8,7 +8,6 @@ type inventory = {
 type employees = {
     name: string,
     department: string,
-    necessaryEquipment: string    
 }
 
 function invetory(inventory: inventory) {}
