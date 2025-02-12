@@ -9,9 +9,9 @@
 <body>
     <main class="reading-view stack">
         <nav>
-            <menu>
-                <li><a href="add-item.html">New Item</a></li>
-            </menu>
+            <ul>
+                <li><a href="add.item.html">New Item</a></li>
+            </ul>
         </nav>
         <h1>Items</h1>
         <ul id="items" class="details-list"></ul>
@@ -24,9 +24,12 @@
 
         for (const item of getItems()) {
             const itemEl = document.createElement("li");
+            const link = document.createElement("a");
 
-            itemEl.textContent = item.name;
+            link.textContent = item.name;
+            link.setAttribute("href", `add.item.html#${item.id}`);
 
+            itemEl.append(link);
             itemsList.append(itemEl);
         }
     </script>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Item</title>
-    <link rel="stylesheet" href="dist/styles.css" />
+    <link rel="stylesheet" href="dist/style.css" />
 </head>
 
 <body>
@@ -37,22 +37,44 @@
     </main>
 
     <script type="module">
-        import { addItem } from "./dist/app.js";
+        import { addItem, editItem, getItem, getItems, decomission, acquire, consume, addToStock, addEmployee } from "./dist/app.js";
+        const itemForm = document.forms.namedItem("new item");
+        const itemId = window.location.hash.slice(1);
+        const save = itemId ? editItem : addItem;
 
-        document.forms.namedItem("new item").addEventListener("submit", function (e) {
+        if (!itemId) {
+            itemForm.id.value = crypto.randomUUID().replaceAll("-", "").slice(-6);
+        } else {
+            const item = getItem(itemId);
+
+            if (typeof item === "string") {
+                window.location.assign(`error.html#${item}`);
+            } else {
+                itemForm.id.value = item.id;
+                itemForm.name.value = item.name;
+                itemForm.category.value = item.category;
+                itemForm.description.value = item.description ?? "";
+                itemForm.priceInNIS.value = item.priceInAgorot / 100;
+                itemForm.save.textContent = "Update";
+                itemForm.category.setAttribute("disabled", true);
+            }
+        }
+
+        itemForm.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            const { name, category, description, priceInNIS } = Object.fromEntries(
+            const { id, name, category, description, priceInNIS } = Object.fromEntries(
                 new FormData(e.target)
             );
 
-            const result = addItem({
-                id: crypto.randomUUID().replaceAll("-", "").slice(-6),
+            const item = {
+                id,
                 name,
                 category,
                 ...(description ? { description } : {}),
                 priceInAgorot: Number(priceInNIS) * 100,
-            });
+            };
+            const result = save(item);
 
             if (result !== "Success") {
                 alert(result);
