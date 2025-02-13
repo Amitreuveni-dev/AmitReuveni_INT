@@ -14,3 +14,15 @@ var professor = /** @class */ (function () {
 var professor1 = new professor("dr. smith", "mathematics");
 console.log(professor1.grade('Amit reuveni'));
 console.log(professor1.introduceSelf());
+var dogPrototype = {
+    happines: 3,
+    bark: function () {
+        console.log("Woof!");
+    },
+    play: function () {
+        this.happines++;
+    }
+};
+var ollie = Object.create(dogPrototype);
+ollie.bark();
+var snowy = Object.create(dogPrototype);

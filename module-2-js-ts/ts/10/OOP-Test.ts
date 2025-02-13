@@ -23,3 +23,23 @@ const professor1 = new professor(`dr. smith`, `mathematics`);
 
 console.log(professor1.grade('Amit reuveni'));
 console.log(professor1.introduceSelf());
+
+
+
+
+
+const dogPrototype = {
+    happines: 3,
+    bark() {
+        console.log("Woof!");
+    },
+    play() {
+        this.happines++;
+    },
+};
+
+
+const ollie = Object.create(dogPrototype);
+ollie.bark();
+
+const snowy = Object.create(dogPrototype);
