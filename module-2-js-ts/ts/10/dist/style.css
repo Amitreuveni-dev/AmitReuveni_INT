@@ -44,21 +44,25 @@ header img {
 }
 header .contact {
   margin: 0.5rem;
-  background-color: gray;
+  background-color: #c4c1ab;
   border: none;
   border-radius: 1rem;
   font-size: larger;
   cursor: pointer;
 }
 header .contact:hover {
-  background-color: #999999;
+  background-color: #d9d7c9;
 }
 header .contact:active {
-  background-color: #b3b3b3;
+  background-color: #eeede7;
 }
 
 .nav-bar {
   display: flex;
   background-color: beige;
   align-items: center;
+}
+
+main {
+  text-align: center;
 }

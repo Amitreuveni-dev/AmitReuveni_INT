@@ -51,17 +51,17 @@ header{
 
     .contact{
         margin: 0.5rem;
-        background-color: hsl(0, 0%, 50%);
+        background-color: hsl(51, 18%, 72%);
         border: none;
         border-radius: 1rem;
         font-size: larger;
         cursor: pointer;
     }
     .contact:hover{
-        background-color: hsl(0, 0%, 60%);
+        background-color: hsl(51, 18%, 82%);
     }
     .contact:active{
-        background-color: hsl(0, 0%, 70%);
+        background-color: hsl(51, 18%, 92%);
     }
 }
 
@@ -69,4 +69,8 @@ header{
     display: flex;
     background-color: beige;
     align-items: center;
+}
+
+main{
+    text-align: center;
 }

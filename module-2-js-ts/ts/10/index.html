@@ -11,23 +11,27 @@
 <body>
     <header class="heading">
         <nav class="nav-bar">
-            <img src="OIP.jpg" alt="">
-            <h1 class="title">Pet shop</h1>
+            <img src="images/OIP.jpg" alt="">
+            <h1 class="title">Pet store</h1>
             <div>
                 <button class="contact">contact us</button>
             </div>
         </nav>
     </header>
     <main>
-        <h2>Welcome to the best pet shop</h2>
+        <h2>Welcome to the best pet store</h2>
+        <h3>How can we help you</h3>
+        <h4>⬇️⬇️⬇️</h4>
         <form>
             <div>
-                <label for="">lorem</label>
-                <input type="text">
+                <button onclick="openCategory('food')">Food</button>
+                <button onclick="openCategory('toys')">Toys</button>
+                <button onclick="openCategory('health care')">Health care</button>
+                <button onclick="openCategory('general')">General</button>
             </div>
         </form>
     </main>
-    <script src="dist/"></script>
+    <script src="dist/petShop.js"></script>
 </body>
 
 </html>
