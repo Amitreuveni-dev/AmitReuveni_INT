@@ -21,13 +21,24 @@
     <main>
         <h2>Welcome to the best pet store</h2>
         <h3>How can we help you</h3>
-        <h4>⬇️⬇️⬇️</h4>
         <form>
             <div>
-                <button onclick="openCategory('food')">Food</button>
-                <button onclick="openCategory('toys')">Toys</button>
-                <button onclick="openCategory('health care')">Health care</button>
-                <button onclick="openCategory('general')">General</button>
+                <button onclick="openCategory('food'); event.preventDefault();">Food</button>
+                <button onclick="openCategory('toys'); event.preventDefault();">Toys</button>
+                <button onclick="openCategory('health care'); event.preventDefault();">Health care</button>
+                <button onclick="openCategory('general'); event.preventDefault();">General</button>
+                <button onclick="openCategory('animals'); event.preventDefault();">Animals</button>
+            </div>
+        </form>
+        <form>
+            <div id="category-items">
+
+            </div>
+        </form>
+        <form>
+            <div id="close-button">
+                <button onclick="closeCategory(); event.preventDefault();">close</button>
+
             </div>
         </form>
     </main>

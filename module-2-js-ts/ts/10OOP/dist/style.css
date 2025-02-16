@@ -65,4 +65,40 @@ header .contact:active {
 
 main {
   text-align: center;
+  padding: 1rem;
+}
+main button {
+  margin: 1rem;
+  font-size: 1rem;
+  margin-inline: 0.5rem;
+}
+
+#category-items {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item {
+  border: 1px solid #ddd;
+  margin: 10px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.item button {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item button:hover {
+  background-color: #45a049;
 }
