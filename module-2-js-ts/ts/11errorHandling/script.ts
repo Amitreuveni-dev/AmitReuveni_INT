@@ -2,7 +2,7 @@ function doSomething() {
     try {
         throw new Error();
     } catch {
-        throw new Error();
+        console.log("hellomyfriend");
     } finally {
         console.log("world");
     }

@@ -86,7 +86,7 @@ function openCategory(category) {
             animalDescription.textContent = animal.description || "No description available.";
             const buyButton = document.createElement("button");
             buyButton.textContent = "Buy";
-            buyButton.onclick = () => addAnimalToCart(animal);
+            buyButton.onclick = (event) => addAnimalToCart(event, animal);
             animalDiv.appendChild(animalName);
             animalDiv.appendChild(animalAge);
             animalDiv.appendChild(animalDescription);
@@ -106,7 +106,7 @@ function openCategory(category) {
             itemDescription.textContent = item.description || "No description available.";
             const buyButton = document.createElement("button");
             buyButton.textContent = "Buy";
-            buyButton.onclick = () => addItemToCart(item);
+            buyButton.onclick = (event) => addItemToCart(event, item);
             itemDiv.appendChild(itemName);
             itemDiv.appendChild(itemPrice);
             itemDiv.appendChild(itemDescription);
@@ -115,11 +115,13 @@ function openCategory(category) {
         });
     }
 }
-function addItemToCart(item) {
-    console.log(`Item added to cart: ${item.name}`);
+function addItemToCart(event, item) {
+    event.preventDefault();
+    console.log(`${item.name} Added to cart:`);
 }
-function addAnimalToCart(animal) {
-    console.log(`Animal added to cart: ${animal.name}`);
+function addAnimalToCart(event, animal) {
+    event.preventDefault();
+    console.log(`The ${animal.type} ${animal.name} added to cart:`);
 }
 function closeCategory() {
     const closingCategory = document.getElementById("category-items");

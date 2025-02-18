@@ -116,7 +116,7 @@ function openCategory(category: string) {
 
             const buyButton = document.createElement("button");
             buyButton.textContent = "Buy";
-            buyButton.onclick = () => addAnimalToCart(animal);
+            buyButton.onclick = (event) => addAnimalToCart(event, animal);
 
             animalDiv.appendChild(animalName);
             animalDiv.appendChild(animalAge);
@@ -141,7 +141,7 @@ function openCategory(category: string) {
 
             const buyButton = document.createElement("button");
             buyButton.textContent = "Buy";
-            buyButton.onclick = () => addItemToCart(item);
+            buyButton.onclick = (event) => addItemToCart(event, item);
 
             itemDiv.appendChild(itemName);
             itemDiv.appendChild(itemPrice);
@@ -153,12 +153,14 @@ function openCategory(category: string) {
     }
 }
 
-function addItemToCart(item: Item) {
-    console.log(`Item added to cart: ${item.name}`);
+function addItemToCart(event: Event, item: Item) {
+    event.preventDefault();
+    console.log(`${item.name} Added to cart:`);
 }
 
-function addAnimalToCart(animal: Animal) {
-    console.log(`Animal added to cart: ${animal.name}`);
+function addAnimalToCart(event: Event, animal: Animal) {
+    event.preventDefault();
+    console.log(`The ${animal.type} ${animal.name} added to cart:`);
 }
 
 function closeCategory() {

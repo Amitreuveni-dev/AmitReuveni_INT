@@ -3,7 +3,7 @@ function doSomething() {
         throw new Error();
     }
     catch (_a) {
-        throw new Error();
+        console.log("hellomyfriend");
     }
     finally {
         console.log("world");
