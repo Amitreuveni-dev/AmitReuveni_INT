@@ -1,4 +1,12 @@
-import { addTodo, toggleTodo } from "./model.js";
+import { addTodo, getTodos, initTodos, toggleTodo } from "./model.js";
+const todosStorageKey = "todos";
+export function init() {
+    const todos = JSON.parse(localStorage.getItem(todosStorageKey)) ?? [];
+    initTodos(todos);
+}
+export function save() {
+    localStorage.setItem(todosStorageKey, JSON.stringify(getTodos()));
+}
 export function onAddTodoSubmit(formData) {
     const rawContent = formData.get("content");
     if (typeof rawContent !== "string") {
@@ -10,7 +18,7 @@ export function onAddTodoSubmit(formData) {
     }
     addTodo({
         id: crypto.randomUUID().replaceAll("-", "").slice(-8),
-        createdAt: new Date(),
+        createdAt: new Date().valueOf(),
         status: "Pending",
         content,
     });
