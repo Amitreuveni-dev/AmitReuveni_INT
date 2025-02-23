@@ -41,6 +41,6 @@ export function onTodosUpdate(callback: () => void) {
     onTodosUpdateCallbacks.push(callback);
 }
 
-function callOnTodosUpdateCallbacks() {
+export function callOnTodosUpdateCallbacks() {
     onTodosUpdateCallbacks.forEach((callback) => callback());
 }

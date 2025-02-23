@@ -24,3 +24,18 @@ export function onAddTodoSubmit(formData) {
     });
 }
 export const onToggleTodo = toggleTodo;
+export function removeAll() {
+    const cleanAll = document.getElementById("todos");
+    if (cleanAll) {
+        cleanAll.innerHTML = "";
+    }
+    localStorage.removeItem("todos");
+}
+document.getElementById("removeAll").addEventListener("click", removeAll);
+export function removeCompletedTodos() {
+    const cleanCompletedTodos = getTodos();
+    const remainingTodos = cleanCompletedTodos.filter(todo => todo.status !== "Completed");
+    localStorage.setItem(todosStorageKey, JSON.stringify(remainingTodos));
+    initTodos(remainingTodos);
+}
+document.getElementById("removeCompletedTodos").addEventListener("click", removeCompletedTodos);

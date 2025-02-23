@@ -1,4 +1,4 @@
-import { addTodo, getTodos, initTodos, toggleTodo } from "./model.js";
+import { addTodo, getTodos, initTodos, onTodosUpdate, toggleTodo, callOnTodosUpdateCallbacks } from "./model.js";
 
 const todosStorageKey = "todos";
 
@@ -34,3 +34,29 @@ export function onAddTodoSubmit(formData: FormData) {
 }
 
 export const onToggleTodo = toggleTodo;
+
+
+
+export function removeAll() {
+    const cleanAll = document.getElementById("todos");
+    if (cleanAll) {
+        cleanAll.innerHTML = "";
+    }
+
+    localStorage.removeItem("todos");
+
+}
+
+document.getElementById("removeAll").addEventListener("click", removeAll);
+
+export function removeCompletedTodos() {
+    const cleanCompletedTodos = getTodos();
+    const remainingTodos = cleanCompletedTodos.filter(todo => todo.status !== "Completed");
+
+    localStorage.setItem(todosStorageKey, JSON.stringify(remainingTodos));
+
+
+    initTodos(remainingTodos);
+}
+
+document.getElementById("removeCompletedTodos").addEventListener("click", removeCompletedTodos);

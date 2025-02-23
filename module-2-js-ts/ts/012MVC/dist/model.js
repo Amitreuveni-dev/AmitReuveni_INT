@@ -25,6 +25,6 @@ export function toggleTodo(todoId) {
 export function onTodosUpdate(callback) {
     onTodosUpdateCallbacks.push(callback);
 }
-function callOnTodosUpdateCallbacks() {
+export function callOnTodosUpdateCallbacks() {
     onTodosUpdateCallbacks.forEach((callback) => callback());
 }
