@@ -1,11 +1,21 @@
-import { addTodo, getTodos, initTodos, onTodosUpdate, toggleTodo, callOnTodosUpdateCallbacks } from "./model.js";
+import { addTodo, getTodos, initTodos, toggleTodo, callOnTodosUpdateCallbacks } from "./model.js";
 
 const todosStorageKey = "todos";
 
 export function init() {
     const todos = JSON.parse(localStorage.getItem(todosStorageKey)) ?? [];
-
     initTodos(todos);
+
+
+    document.getElementById("removeAll").addEventListener("click", removeAll);
+    
+    document.getElementById("removeCompletedTodos").addEventListener("click", removeCompletedTodos);
+    
+    document.getElementById("filterSelect").addEventListener("change", (e) => {
+        const filterValue = (e.target as HTMLSelectElement).value;
+        filterTodos(filterValue);
+    });
+
 }
 
 export function save() {
@@ -44,10 +54,11 @@ export function removeAll() {
     }
 
     localStorage.removeItem("todos");
+    
+    initTodos([]);
 
 }
 
-document.getElementById("removeAll").addEventListener("click", removeAll);
 
 export function removeCompletedTodos() {
     const cleanCompletedTodos = getTodos();
@@ -59,4 +70,20 @@ export function removeCompletedTodos() {
     initTodos(remainingTodos);
 }
 
-document.getElementById("removeCompletedTodos").addEventListener("click", removeCompletedTodos);
+
+
+export function filterTodos(filterValue = "all") {
+    const filterAllTodos = getTodos();
+
+    let sortedTodos = [];
+
+    if (filterValue === "Completed") {
+        sortedTodos = filterAllTodos.filter(f => f.status === "Completed");
+    } else if (filterValue === "Pending") {
+        sortedTodos = filterAllTodos.filter(f => f.status === "Pending");
+    } else {
+        sortedTodos = filterAllTodos;
+    }
+    initTodos(sortedTodos);
+
+}

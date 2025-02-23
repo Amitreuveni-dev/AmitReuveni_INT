@@ -3,6 +3,12 @@ const todosStorageKey = "todos";
 export function init() {
     const todos = JSON.parse(localStorage.getItem(todosStorageKey)) ?? [];
     initTodos(todos);
+    document.getElementById("removeAll").addEventListener("click", removeAll);
+    document.getElementById("removeCompletedTodos").addEventListener("click", removeCompletedTodos);
+    document.getElementById("filterSelect").addEventListener("change", (e) => {
+        const filterValue = e.target.value;
+        filterTodos(filterValue);
+    });
 }
 export function save() {
     localStorage.setItem(todosStorageKey, JSON.stringify(getTodos()));
@@ -30,12 +36,25 @@ export function removeAll() {
         cleanAll.innerHTML = "";
     }
     localStorage.removeItem("todos");
+    initTodos([]);
 }
-document.getElementById("removeAll").addEventListener("click", removeAll);
 export function removeCompletedTodos() {
     const cleanCompletedTodos = getTodos();
     const remainingTodos = cleanCompletedTodos.filter(todo => todo.status !== "Completed");
     localStorage.setItem(todosStorageKey, JSON.stringify(remainingTodos));
     initTodos(remainingTodos);
 }
-document.getElementById("removeCompletedTodos").addEventListener("click", removeCompletedTodos);
+export function filterTodos(filterValue = "all") {
+    const filterAllTodos = getTodos();
+    let sortedTodos = [];
+    if (filterValue === "Completed") {
+        sortedTodos = filterAllTodos.filter(f => f.status === "Completed");
+    }
+    else if (filterValue === "Pending") {
+        sortedTodos = filterAllTodos.filter(f => f.status === "Pending");
+    }
+    else {
+        sortedTodos = filterAllTodos;
+    }
+    initTodos(sortedTodos);
+}

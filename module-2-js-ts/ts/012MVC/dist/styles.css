@@ -1,5 +1,7 @@
 @charset "UTF-8";
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -21,7 +23,8 @@ main {
   margin-inline: auto;
 }
 
-input, button {
+input,
+button {
   font-size: inherit;
   font-family: inherit;
 }
@@ -48,6 +51,12 @@ form[name="add todo"] {
 form[name="add todo"] > input {
   flex: 1;
 }
+form[name="add todo"] select {
+  cursor: pointer;
+}
+form[name="add todo"] button {
+  cursor: pointer;
+}
 
 #todos {
   display: flex;
@@ -64,4 +73,12 @@ form[name="add todo"] > input {
 }
 #todos > li.completed::after {
   content: "✅";
+}
+
+#removeAllButton button {
+  cursor: pointer;
+}
+
+#removeCompletedButtons button {
+  cursor: pointer;
 }

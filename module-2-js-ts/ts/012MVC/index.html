@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
     <link rel="stylesheet" href="dist/styles.css" />
 </head>
+
 <body>
     <main class="stack">
         <h1>My Todo List</h1>
         <form name="add todo">
             <input type="text" name="content" required autofocus />
-            <button>➕ Add</button>
+            <button id="addButton">➕ Add</button>
+            <select name="filterSelect" id="filterSelect">
+                <option value="All">All</option>
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+            </select>
         </form>
         <ul id="todos"></ul>
-        <button id="removeAll">Remove All</button>
-        <button id="removeCompletedTodos">remove Completed Todos</button>
+        <div id="removeAllButton">
+            <button id="removeAll">Remove All</button>
+        </div>
+        <div id="removeCompletedButtons">
+            <button id="removeCompletedTodos">remove Completed Todos</button>
+        </div>
     </main>
     <script type="module">
         import { init } from "./dist/view.js";
@@ -26,4 +37,5 @@
         );
     </script>
 </body>
+
 </html>
