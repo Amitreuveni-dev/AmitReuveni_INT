@@ -20,14 +20,33 @@
 
 // import * as fs from "fs";
 const fs = require("fs");
+const { EOL } = require("os");
 
 const [,, inputPath] = process.argv;
 
-try {
-    const fileContent = fs.readFileSync(inputPath, "utf8");
-    const joinedContant = fileContent.split("\n\r").join(",");
+app();
 
-    console.log(joinedContant);
-} catch {
-    console.error(`cannot find file ${inputPath}`);
+function app() {
+    const input = getInput();
+    const joinedContant = input.replaceAll(EOL, ",");
+    const outputPath = getOutputFilePath();
+
+    fs.writeFileSync(outputPath, joinedContant);
 }
+
+function getInput() {
+    try {
+        return fs.readFileSync(inputPath, "utf8");
+    } catch {
+        console.error(`cannot find file ${inputPath}`);
+        process.exit(1);
+    }
+}
+
+function getOutputFilePath() {
+    const fileParts = inputPath.split(".");
+    const fileName = fileParts.slice(0, -1).join(".");
+    const fileExtension = fileParts.slice(-1);
+    return `${fileName}-joined.${fileExtension}`;
+}
+
